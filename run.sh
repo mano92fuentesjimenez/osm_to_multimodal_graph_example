@@ -90,16 +90,16 @@ psql -h $HOST -U $USER -d $DB -p $PORT -c "set client_min_messages to 'error'; s
   \"pedestrians\": {
     \"sql\": \"select gid as id, the_geom,0 as z_start, 0 as z_end from pedestrian.ways\",
     \"pconn\": 0,
-    \"zconn\": 0
+    \"zconn\": 2
   },\"buses\": {
     \"sql\": \"select osm_id as id, way as the_geom,0 as z_start, 0 as z_end from bus.bus_p\",
     \"pconn\": 0,
-    \"zconn\": 0
+    \"zconn\": 2
   },
   \"bus_stops\":{
     \"sql\":\"select osm_id as id, way as the_geom,0 z from bus.bus_stops\",
     \"pconn\":1,
-    \"zconn\":0
+    \"zconn\":2
    }
 }', 'bus_and_pedestrians', 'graphs', 0.000001);"
 
