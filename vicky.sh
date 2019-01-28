@@ -9,18 +9,18 @@ echo 'and it is not what we want, remember a traveler cant leave the buss where 
 echo 'So we are gonna need a buss stop level too, that is going to be the set of transfer points from pedestrian level to buses level and vice versa '
 echo ''
 
-echo usage: run.sh "<postgres parameters>"
-echo example: run.sh "-p 5432"
+echo usage: vikcy.sh "<postgres parameters>"
+echo example: vicky.sh "-p 5432"
 
 CITY="havana"
 DB=$CITY
 
-dropdb --if_exists $DB
+dropdb --if-exists $DB
 createdb $DB
-psql -d $DB -c 'create extension postgis' $1
-psql -d $DB -c 'create extension pgrouting' $1
-psql -d $DB -c 'create extension hstore' $1
-psql -d $DB -c 'create schema pedestrian' $1
+psql -d $DB -c 'CREATE EXTENSION postgis' $1
+psql -d $DB -c 'CREATE EXTENSION pgrouting' $1
+psql -d $DB -c 'CREATE EXTENSION hstore' $1
+psql -d $DB -c 'CREATE SCHEMA pedestrian' $1
 
 
 echo 'Creating level of pedestrian'

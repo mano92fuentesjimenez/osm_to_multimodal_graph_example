@@ -57,11 +57,11 @@
   <tag_name name="junction" id="6">
     <tag_value name="roundabout" priority="2.5" id="601" />
   </tag_name>
-  <tag_name name="barrier" id="3">
-    <tag_value name="kerb" id="301" priority="1.0" maxspeed="13" />
-    <tag_value name="gate" id="302" priority="1.0" maxspeed="13" />
-    <tag_value name="bollard" id="303" priority="1.0" maxspeed="13" />
-    <tag_value name="cycle_barrier" id="304" priority="1.0" maxspeed="13" />
+  <tag_name name="barrier" id="7">
+    <tag_value name="kerb" id="701" priority="1.0" maxspeed="13" />
+    <tag_value name="gate" id="702" priority="1.0" maxspeed="13" />
+    <tag_value name="bollard" id="703" priority="1.0" maxspeed="13" />
+    <tag_value name="cycle_barrier" id="704" priority="1.0" maxspeed="13" />
   </tag_name>
 
 </configuration>
