@@ -155,6 +155,14 @@ psql -h $HOST -U $USER -d $DB -p $PORT -c  "insert into routes.pedestrians
                                                               true
                                                    ) as d inner join graphs.pedestrians as graph on(d.edge = graph.id);
                                             "
-
+echo "Adding routes from start point to all bus stops"
+psql -h $HOST -U $USER -d $DB -p $PORT -c  "create table routes.nearest_bus_stop as
+                                            select *
+                                            from _pgr_dijkstraNear(' select id, source, target, time_cost as cost, time_cost as reverse_cost from graphs.bus_and_pedestrians',
+                                                              (select b.id from graphs.bus_and_pedestrians_pt as b inner join routes.stops as r on ( st_intersects(st_buffer(b.geom,0.000001),r.geom)) where r.id = 1),
+                                                              (select array_agg(id) from graphs.bus_and_pedestrians_pt where  layname = 'bus_stops'),
+                                                              10000000,
+                                                              true
+                                                   ) as d inner join graphs.bus_and_pedestrians as graph on(d.edge = graph.id);"
 echo "Finish"
 echo "Please see results on qgis. Add the layers in the routes schema, and the ones from the graphs schema  and get your own conclusions"
